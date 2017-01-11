@@ -877,6 +877,7 @@ export default class Grid extends Component {
   }
 
   _onWheelHandler(deltaX, deltaY) {
+    // Prevent pointer events from interrupting a smooth scroll
     this._debounceScrollEnded()
 
     // When this component is shrunk drastically, React dispatches a series of back-to-back scroll events,

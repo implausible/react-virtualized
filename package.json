@@ -7,15 +7,13 @@
   "next": "8.9.0",
   "homepage": "https://github.com/bvaughn/react-virtualized",
   "main": "dist/commonjs/index.js",
-  "module": "dist/es/index.js",
   "jsnext:main": "dist/es/index.js",
   "license": "MIT",
   "scripts": {
-    "build": "npm run build:commonjs && npm run build:css && npm run build:es && npm run build:demo && npm run build:umd",
+    "build": "npm run build:commonjs && npm run build:css && npm run build:demo && npm run build:umd",
     "build:commonjs": "npm run clean:commonjs && cross-env NODE_ENV=production cross-env BABEL_ENV=commonjs babel source --out-dir dist/commonjs --ignore *.example.js,*.test.js,source/demo/,source/tests.js",
     "build:css": "postcss --use autoprefixer source/styles.css > styles.css",
     "build:demo": "npm run clean:demo && cross-env NODE_ENV=production webpack --config webpack.config.demo.js -p --bail",
-    "build:es": "npm run clean:es && cross-env NODE_ENV=production cross-env BABEL_ENV=es babel source --out-dir dist/es --ignore *.example.js,*.test.js,source/demo/,source/tests.js",
     "build:umd": "npm run clean:umd && cross-env NODE_ENV=production webpack --config webpack.config.umd.js --bail",
     "clean": "npm run clean:commonjs && npm run clean:demo && npm run clean:es && npm run clean:umd",
     "clean:commonjs": "rimraf dist/commonjs",
@@ -147,6 +145,7 @@
     "babel-runtime": "^6.11.6",
     "classnames": "^2.2.3",
     "dom-helpers": "^2.4.0 || ^3.0.0",
+    "lodash.throttle": "^4.1.1",
     "loose-envify": "^1.3.0"
   },
   "peerDependencies": {
